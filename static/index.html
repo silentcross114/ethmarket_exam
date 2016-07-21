@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Order List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+  <style>
+    .column {      
+      float: left;
+      width: 24%;
+      margin-left: 5px;
+    }
+    
+    .column2 {
+      float: left;
+      width: 48%;
+      margin-left: 5px;
+    }
+    
+    .col1 {
+      display: inline-block;
+      width: 24%;
+    }
+    .col2 {
+      display: inline-block;
+      width: 15%;
+    }
+    .col3{
+      display: inline-block;
+      width: 20%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Order List</h1>
+  <div>
+  <button type="button" class="btn btn-warning" style="float:right;margin-top:-50px;margin-right:50px;" data-bind="click : reset">Reset</button>
+  </div>
+  <div class="column">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span class="col1">Number</span>
+        <span class="col1">Side</span>
+        <span class="col1">Quantity</span>
+        <span class="col1">Price</span>
+      </li>
+      <!-- ko foreach:top20ask -->
+      <li class="list-group-item">
+        <span data-bind="text : orderNo" class="col1"></span>
+        <span data-bind="text : side" class="col1"></span>
+        <span data-bind="text : quantity" class="col1"></span>
+        <span data-bind="text : price" class="col1"></span>
+      </li>
+      <!-- /ko -->
+    </ul>
+
+  </div>
+  <div class="column">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span class="col1">Number</span>
+        <span class="col1">Side</span>
+        <span class="col1">Quantity</span>
+        <span class="col1">Price</span>
+      </li>
+      <!-- ko foreach:top20bid -->
+      <li class="list-group-item">
+        <span data-bind="text : orderNo" class="col1"></span>
+        <span data-bind="text : side" class="col1"></span>
+        <span data-bind="text : quantity" class="col1"></span>
+        <span data-bind="text : price" class="col1"></span>
+      </li>
+      <!-- /ko -->
+    </ul>
+  </div>
+  <div class="column2">
+<ul class="list-group">
+      <li class="list-group-item">
+        <span class="col2">Ask Order</span>
+        <span class="col2">Bid Orde</span>
+        <span class="col2">Trade type</span>
+        <span class="col2">Quantity</span>
+        <span class="col2">Price</span>
+        <span class="col3">Trade Time</span>        
+      </li>
+      <!-- ko foreach:top30trade -->
+      <li class="list-group-item">
+        <span class="col2" data-bind="text : askOrderNo"></span>
+        <span class="col2" data-bind="text : bidOrderNo"></span>
+        <span class="col2" data-bind="text : type"></span>
+        <span class="col2" data-bind="text : quantity"></span>
+        <span class="col2" data-bind="text : price"></span>
+        <span class="col3" data-bind="text : datetime"></span>        
+      </li>
+
+      <!-- /ko -->    
+  </div>
+  
+
+  <!--------------------------------- Scripts ------------------------------------------>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+  <script src="orders.js"></script>
+</body>
+
+</html>
